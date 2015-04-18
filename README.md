@@ -22,3 +22,40 @@
     
     # run server
     python manage.py runserver_plus
+
+# Step 1 #
+
+ - `virtualenv .venv`, activate, `pip install -r requirements.txt`
+ - `python manage.py startproject`
+ - project structure (`manage.py`, `_project_v1_`, `_project_v1_/settings.py`, `_project_v1_/wsgi.py`, `_project_v1_/urls.py`)
+ - `python manage.py runserver`
+ - project settings (`DEBUG`, `INSTALLED_APPS`, `ROOT_URLCONF`, `WSGI_APPLICATION`, `DATABASES`, `TEMPLATES`, `TEMPLATES['DIRS']`)
+ - write simple view `def index(request): return render(request, 'index.html')` in `urls.py`
+ - add `_project_v1_/templates/index.html`, change settings `TEMPLATES['DIRS']`
+ - install `django_debug_toolbar>=1.3.0`, `django_extensions>=1.5.2`, add to `INSTALLED_APPS`
+ - show `debug-toolbar` features
+ - show `python manage.py runserver_plus`
+ - add static file `_project_v1_/static/robots.txt`, change settings `STATICFILES_DIRS`; tell about how django gives static files, `'django.contrib.staticfiles'` 
+ - show django admin interface; tell about User, Group, Permission models; overview of `INSTALLED_APPS`
+
+# Step 2 #
+
+ - tell about ORM, migrations
+ - `python manage.py startapp`
+ - app structure (`models.py`, `migrations`, `views.py`, `tests.py`, `admin.py`)
+ - write simple `Model` (`class Entry(models.Model): title = models.CharField(max_length=200)`)
+ - `python manage.py help`
+ - `python manage.py makemigrations`, show `migrations/0001_initial.py`
+ - `python manage.py migrate`
+ - show `db.sqlite3` file (sqlite3 view)
+ - `python manage.py shell`, `python manage.py shell_plus`
+ - create models and show in `db.sqlite3` file
+ - show models API, tell about `Manager`
+ - write model with `ForeignKey`, `ManyToManyField` and `DateTimeField` (`Entry` with author and `Tags`)
+ - show `python manage.py makemigrations` and tell about the new columns default values; show `migrations/0002_auto*.py`
+ - show more model API; tell about `.save()` related objects 
+ - show how to write simple script for work with `models.py` (`os.environ.setdefault("DJANGO_SETTINGS_MODULE", "_project_v1_.settings"); from django.conf import settings`)
+
+# Step 3 #
+
+ - write `view.py`
