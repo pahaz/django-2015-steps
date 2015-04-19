@@ -35,7 +35,7 @@
  - install `django_debug_toolbar>=1.3.0`, `django_extensions>=1.5.2`, add to `INSTALLED_APPS`
  - show `debug-toolbar` features
  - show `python manage.py runserver_plus`
- - add static file `_project_v1_/static/robots.txt`, change settings `STATICFILES_DIRS`; tell about how django gives static files, `'django.contrib.staticfiles'` 
+ - add static file `_project_v1_/static/robots.txt`, change settings `STATICFILES_DIRS`; tell about how to django gives static files, `'django.contrib.staticfiles'` 
  - show django admin interface; tell about User, Group, Permission models; overview of `INSTALLED_APPS`
 
 # Step 2 #

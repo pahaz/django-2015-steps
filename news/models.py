@@ -18,4 +18,5 @@ class News(models.Model):
     tags = models.ManyToManyField(Tag)
 
     def __str__(self):
-        return self.title
+        tags = ' / '.join([x.name for x in self.tags.all()])
+        return "{0} // {1}".format(self.title, tags)
