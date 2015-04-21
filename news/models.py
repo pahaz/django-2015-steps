@@ -12,7 +12,7 @@ class Tag(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
-    author = models.ForeignKey(User)  # TODO: fixit!
+    author = models.ForeignKey(User, blank=True, null=True)  # TODO: fixit!
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     tags = models.ManyToManyField(Tag)
