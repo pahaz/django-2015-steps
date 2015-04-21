@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import CharField, ChoiceField
+from django.forms import CharField, ChoiceField, HiddenInput
 from news.models import News
 
 __author__ = 'Nikita'
@@ -15,3 +15,11 @@ class NewsForm1(forms.ModelForm):
     class Meta:
         model = News
         fields = ('title', 'body', )
+
+
+class NewsForm2(forms.ModelForm):
+
+    class Meta:
+        model = News
+        fields = ('title', 'body', 'author', )
+        widgets = {'author': HiddenInput}
