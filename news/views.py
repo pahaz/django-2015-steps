@@ -1,9 +1,10 @@
 from datetime import date
+from django.contrib.auth.models import AnonymousUser
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import View, FormView
-from news.forms import NewsForm, NewsForm1
+from django.views.generic import View, FormView, CreateView
+from news.forms import NewsForm, NewsForm1, NewsForm2
 from news.models import News
 
 
@@ -50,6 +51,23 @@ class NewsIndex1(FormView):
         return super(NewsIndex1, self).get_context_data(**kwargs)
 
     def form_valid(self, form):
-        self.object = form.save()
+        form.save()
         return super(NewsIndex1, self).form_valid(form)
+
+
+class NewsIndex2(CreateView):
+    form_class = NewsForm2
+    template_name = 'news/index.html'
+    #model = News
+    success_url = '/news/'
+
+    def get_context_data(self, **kwargs):
+        kwargs.update(news=News.objects.filter(updated_at__gte=date.today()).all())
+        return super(NewsIndex2, self).get_context_data(**kwargs)
+
+    def get_initial(self):
+        if not self.request.user is AnonymousUser:
+            self.initial.update(author=self.request.user)
+        return super(NewsIndex2, self).get_initial()
+
 

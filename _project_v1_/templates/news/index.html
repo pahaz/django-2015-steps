@@ -20,16 +20,21 @@
 
 <br />
 
-{% if form %}
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Опубликовать!"/>
-    </form>
+{% if request.user.is_authenticated %}
+    {% if form %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {%  for field in form %}
+
+            {% endfor %}
+            {{ form.as_p }}
+            <input type="submit" value="Опубликовать!"/>
+        </form>
+    {% endif %}
+
 {% else %}
     Пожалуйста, войдите в свой аккаунт
 {% endif %}
-
 
 </body>
 </html>
