@@ -67,3 +67,7 @@
  - `request.user`, `AnonymousUser`
 
 # Step 4 #
+ - more `admin.py`
+ - https://github.com/pahaz/django-steps/tree/master/_step_06 (encapsulate app logic), tell about override app logic (templates, templates tags/filters, template context processors, urls, view, decorator, mixin)
+ - settings `TEMPLATE_CONTEXT_PROCESSORS`
+ - tell how django processes a request: https://docs.djangoproject.com/en/dev/_images/middleware.svg
