@@ -19,26 +19,29 @@ def news_index(request):
 
     else:
         form = NewsForm()
-    
+
     today_news = News.objects.filter(updated_at__gte=date.today()).all()
-    return render(request, 'news/index.html', context={'news': today_news, 'form': form})
+    return render(request, 'news/index.html',
+                  context={'news': today_news, 'form': form})
 
 
 class NewsIndex0(View):
-
     def get(self, request):
         today_news = News.objects.filter(updated_at__gte=date.today()).all()
         form = NewsForm1()
-        return render(request, 'news/index.html', context={'news': today_news, 'form': form})
+        return render(request, 'news/index.html',
+                      context={'news': today_news, 'form': form})
 
     def post(self, request):
         today_news = News.objects.filter(updated_at__gte=date.today()).all()
         form = NewsForm(self.request.POST)
         if form.is_valid():
-            _new = News(title=self.request.POST["title"], body=self.request.POST["body"])
+            _new = News(title=self.request.POST["title"],
+                        body=self.request.POST["body"])
             _new.save()
             form = NewsForm1()
-        return render(self.request, 'news/index.html', context={'news': today_news, 'form': form})
+        return render(self.request, 'news/index.html',
+                      context={'news': today_news, 'form': form})
 
 
 class NewsIndex1(FormView):
@@ -48,7 +51,8 @@ class NewsIndex1(FormView):
     success_url = '/news/'
 
     def get_context_data(self, **kwargs):
-        kwargs.update(news=News.objects.filter(updated_at__gte=date.today()).all())
+        kwargs.update(
+            news=News.objects.filter(updated_at__gte=date.today()).all())
         return super(NewsIndex1, self).get_context_data(**kwargs)
 
     def form_valid(self, form):
@@ -59,16 +63,15 @@ class NewsIndex1(FormView):
 class NewsIndex2(CreateView):
     form_class = NewsForm2
     template_name = 'news/index.html'
-    #model = News
+    # model = News
     success_url = '/news/'
 
     def get_context_data(self, **kwargs):
-        kwargs.update(news=News.objects.filter(updated_at__gte=date.today()).all())
+        kwargs['news'] = News.objects.filter(
+            updated_at__gte=date.today()).all()
         return super(NewsIndex2, self).get_context_data(**kwargs)
 
     def get_initial(self):
-        if not self.request.user is AnonymousUser:
+        if self.request.user is not AnonymousUser:
             self.initial.update(author=self.request.user)
         return super(NewsIndex2, self).get_initial()
-
-
