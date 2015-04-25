@@ -1,6 +1,7 @@
 from datetime import date
 from django.contrib.auth.models import AnonymousUser
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 from django.views.generic import View, FormView, CreateView
@@ -9,18 +10,18 @@ from news.models import News
 
 
 def news_index(request):
-    if request.method == "GET":
-        today_news = News.objects.filter(updated_at__gte=date.today()).all()
-        form = NewsForm()
-        return render(request, 'news/index.html', context={'news': today_news, 'form': form})
-    elif request.method == "POST":
-        today_news = News.objects.filter(updated_at__gte=date.today()).all()
+    if request.method == "POST":
         form = NewsForm(request.POST)
         if form.is_valid():
-            _new = News(title=request.POST["title"], body=request.POST["body"])
+            _new = News(**form.cleaned_data)
             _new.save()
-            form = NewsForm()
-        return render(request, 'news/index.html', context={'news': today_news, 'form': form})
+            return HttpResponseRedirect('/news/')
+
+    else:
+        form = NewsForm()
+    
+    today_news = News.objects.filter(updated_at__gte=date.today()).all()
+    return render(request, 'news/index.html', context={'news': today_news, 'form': form})
 
 
 class NewsIndex0(View):
