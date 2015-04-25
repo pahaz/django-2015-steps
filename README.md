@@ -58,4 +58,12 @@
 
 # Step 3 #
 
- - write `view.py`
+ - write `view.py`, function based views (FBV), good for read and understand, docorator concept.
+ - write `urls.py`, url `include`
+ - `Form`, `ModelForm`, `Widget`, form in templates, `csrf_token`, `clean()`
+ - simple `admin.py`, `admin.site.register`
+ - settings `LANGUAGE_CODE`, `TIME_ZONE`
+ - rewrite `view.py`, class based views (CBV), [https://ccbv.co.uk/], bad for understand, mixin concept.
+ - `request.user`, `AnonymousUser`
+
+# Step 4 #
