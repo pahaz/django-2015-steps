@@ -10,7 +10,7 @@ def index(request):
 urlpatterns = [
     # Examples:
     # url(r'^$', '_project_v1_.views.home', name='home'),
-    url(r'^news/', include('news.urls')),
-    url(r'^$', index),
+    url(r'^$', include('news.urls')),
+    # url(r'^$', index),
     url(r'^admin/', include(admin.site.urls)),
 ]

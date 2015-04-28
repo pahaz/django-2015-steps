@@ -15,7 +15,8 @@ class News(models.Model):
     author = models.ForeignKey(User, blank=True, null=True)  # TODO: fixit!
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)
+    approved = models.BooleanField(default=False, blank=False)
 
     class Meta:
         verbose_name = "Статья"

@@ -68,7 +68,7 @@ class NewsIndex2(CreateView):
 
     def get_context_data(self, **kwargs):
         kwargs['news'] = News.objects.filter(
-            updated_at__gte=date.today()).all()
+            updated_at__gte=date.today(), approved=True).all()
         return super(NewsIndex2, self).get_context_data(**kwargs)
 
     def get_initial(self):
