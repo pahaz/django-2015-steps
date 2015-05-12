@@ -66,10 +66,21 @@
  - rewrite `view.py`, class based views (CBV), [https://ccbv.co.uk/], bad for understand, mixin concept.
  - `request.user`, `AnonymousUser`
 
-# Step 4 #
- - more `admin.py`
- - https://github.com/pahaz/django-steps/tree/master/_step_06 (encapsulate app logic), tell about override app logic (templates, templates tags/filters, template context processors, urls, view, decorator, mixin)
- - settings `TEMPLATE_CONTEXT_PROCESSORS`
- - tell how django processes a request: https://docs.djangoproject.com/en/dev/_images/middleware.svg
+# Step 4 (encapsulate app logic) #
+ - more `admin.py` (https://github.com/pahaz/django-steps/blob/master/_step_06/complaints/admin.py#L7-L26)
+ - tell about override app logic
+ - templates override (https://github.com/pahaz/django-steps/blob/master/_step_06/complaints/templates/complaints/index.html / https://github.com/pahaz/django-steps/blob/master/_step_06/_project_v6_/templates/complaints/index.html) 
+ - templates tags/filters (https://github.com/pahaz/django-steps/blob/master/_step_06/complaints/templatetags/complaints_tags.py#L7-L54)
+ - template context processors (https://github.com/pahaz/django-steps/blob/master/_step_06/complaints/context_processors.py)
+ - overrides: urls, view (decorator, mixin)
 
 # Step 5 #
+ - tell how django processes a request: https://docs.djangoproject.com/en/dev/_images/middleware.svg
+ - ModelManager as single point to model API (https://github.com/pahaz/django-steps/blob/master/_step_07/complaints/models.py#L6-L30)
+ - Abstract models
+ - python manage.py squashmigrations
+
+
+ - inline admin! https://github.com/pahaz/django-steps/blob/master/_step_08/complaints/admin.py#L10-L13 
+ - work with media data! https://github.com/pahaz/django-steps/tree/master/_step_08
+ - write tests! tutorial05.html
