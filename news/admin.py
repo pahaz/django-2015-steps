@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
 from django.contrib.admin import ModelAdmin
 from news.models import News
+
 
 @admin.register(News)
 class NewsAdmin(ModelAdmin):
@@ -14,7 +14,6 @@ class NewsAdmin(ModelAdmin):
     actions = ['approve', ]
 
     def approve(self, request, queryset):
-
         for news in queryset.filter(approved=False):
             news.approved = True
             news.save()
