@@ -3,7 +3,7 @@ import os
 import logging
 
 import django
-
+from django.template import Context, Template
 __author__ = 'pahaz'
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "_project_v1_.settings")
@@ -45,3 +45,14 @@ print(list(t0.news_set.all()))
 print(list(t1.news_set.all()))
 print(list(t.news_set.all()))
 print(list(News.objects.filter(tags__name="Tag-0")))
+
+class Person():
+    def __init__(self):
+        self.first_name = 'DJ'
+
+p = Person()
+
+t = Template('My name is {{name}}')
+c = Context({'name': p.first_name})
+
+print(t.render(c))
