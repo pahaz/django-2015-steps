@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 
-{% load humanize %}
+{% load humanize %}{# https://docs.djangoproject.com/en/1.8/ref/contrib/humanize/#}
 {% load news-extras %}
-
 
 {% block content %}
 {{ custom_data | lower }}
@@ -12,14 +11,6 @@
 {% current_time '%Y %m %d - %I:%M:%p' %}
 
 <br>
-
-{#{% for item in news %}#}
-{#    {{ forloop.counter }}#}
-{#    <h1>{{ item.title }}</h1>#}
-{#    <h2>{{ item.body }}</h2>#}
-{#    <h3>{{ item.updated_at | naturaltime }}</h3>#}
-{#{% endfor %}#}
-
 {% last_news 2 as last_two_news %}
 {% for item in last_two_news %}
     {{ forloop.counter }}
