@@ -111,3 +111,5 @@ TEMPLATES = [
         },
     },
 ]
+
+LOGIN_URL = '/login/'
