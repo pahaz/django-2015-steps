@@ -20,6 +20,6 @@ def current_time(context, format_string):
 
 @register.assignment_tag(takes_context=True)
 def last_news(context, count):
-    all_news = News.objects.all()
+    all_news = News.objects.published()
     counts_news = len(all_news)
     return all_news[counts_news - count: counts_news]
