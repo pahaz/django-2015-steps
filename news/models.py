@@ -16,7 +16,7 @@ class News(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     tags = models.ManyToManyField(Tag, blank=True)
-    approved = models.BooleanField(default=False, blank=False)
+    approved = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Статья"
