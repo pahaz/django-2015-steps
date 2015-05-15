@@ -8,5 +8,5 @@ urlpatterns = [
     # url(r'^$', news_index),
     # url(r'^$', NewsIndex0.as_view()),
     # url(r'^$', NewsIndex1.as_view()),
-    url(r'^$', NewsIndex2.as_view()),
+    url(r'^$', NewsIndex2.as_view(), name="news_index"),
 ]

@@ -6,7 +6,7 @@
 {% block content %}
 {{ custom_data | lower }}
 
-<br>
+<br><a href="{% url 'news:news_index' %}">index</a>
 
 {% current_time '%Y %m %d - %I:%M:%p' %}
 

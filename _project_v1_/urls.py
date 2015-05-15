@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.shortcuts import render
+from news.views import NewsIndex2
 
 
 def index(request):
@@ -10,7 +11,7 @@ def index(request):
 urlpatterns = [
     # Examples:
     # url(r'^$', '_project_v1_.views.home', name='home'),
-    url(r'^$', include('news.urls')),
+    url(r'^$', include('news.urls', namespace='news')),
     # url(r'^$', index),
     url(r'^admin/', include(admin.site.urls)),
 ]

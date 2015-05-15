@@ -22,4 +22,6 @@ def current_time(context, format_string):
 def last_news(context, count):
     all_news = News.objects.published()
     counts_news = len(all_news)
+    if counts_news - count < 0:
+        return []
     return all_news[counts_news - count: counts_news]
