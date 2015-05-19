@@ -67,8 +67,7 @@ class NewsIndex2(CreateView):
     success_url = '/news/'
 
     def get_context_data(self, **kwargs):
-        kwargs['news'] = News.objects.published().filter(
-            updated_at__gte=date.today(), approved=True).all()
+        kwargs['news'] = News.objects.published()
         return super(NewsIndex2, self).get_context_data(**kwargs)
 
     def get_initial(self):

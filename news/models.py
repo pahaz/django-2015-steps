@@ -52,3 +52,10 @@ class News(Timable, models.Model):
     def __str__(self):
         tags = ' / '.join([x.name for x in self.tags.all()])
         return "{0} // {1}".format(self.title, tags)
+
+
+class Attachment(models.Model):
+    news = models.ForeignKey(News)
+    name = models.CharField(max_length=500)
+    file = models.FileField(upload_to='attachments')
+

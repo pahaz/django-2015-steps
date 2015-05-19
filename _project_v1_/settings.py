@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 SECRET_KEY = 'eu=4c$-mnbg11%k^^-n_^#p28c$1aj)di#ib#q)c%x)&4rnlyg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+TEMPLATE_DEBUG = DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -106,6 +106,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
                 'news.context_processor.custom_processor',
             ],
         },
@@ -113,3 +114,6 @@ TEMPLATES = [
 ]
 
 LOGIN_URL = '/login/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '__data__')
