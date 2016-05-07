@@ -84,3 +84,10 @@
  - inline admin! https://github.com/pahaz/django-steps/blob/master/_step_08/complaints/admin.py#L10-L13 
  - work with media data! https://github.com/pahaz/django-steps/tree/master/_step_08
  - write tests! tutorial05.html
+
+# Step 6 #
+ - https://github.com/pahaz/django-steps/tree/master/_step_12 
+
+# Step 7 #
+ - https://github.com/pahaz/django-steps/tree/master/_step_13
+ - https://github.com/pahaz/django-generic-tags-and-likes-example
